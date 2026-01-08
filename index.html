@@ -3,824 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marko Bradaric - UX Designer</title>
+    <title>Marko Bradaric - UX Designer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #F3EDE1;
-            --color-black: #000000;
-            --color-accent: #A98E59;
-            --color-secondary: #E4D7BE;
-            --color-light: #F5F3EF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Om mig Page */
-.about-page {
-    padding: 100px 5% 60px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-content {
-    background-color: var(--color-light);
-    border-radius: 16px;
-    padding: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
-}
-
-.about-text p {
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--color-black);
-    opacity: 0.9;
-}
-
-.about-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Styla kontakt-items i Om mig-sidan */
-.about-page .contact-item {
-    color: var(--color-black) !important;
-    opacity: 0.9;
-}
-
-.about-page .contact-item i {
-    color: var(--color-accent) !important;
-    margin-right: 10px;
-}
-
-.about-page .contact-item span {
-    color: var(--color-black) !important;
-}
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--color-primary);
-            color: var(--color-black);
-            line-height: 1.6;
-            transition: all 0.3s ease;
-            padding-top: 80px; /* Lägg till padding för att undvika att innehållet gömmer sig under menyn */
-        }
-
-        /* Meny - ny CSS */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--color-primary);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(169, 142, 89, 0.2);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--color-black);
-            text-decoration: none;
-            cursor: default; /* Kan inte klickas på */
-        }
-
-        .logo-thick {
-            font-weight: 800;
-        }
-
-        .logo-thin {
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .nav-center {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-link {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            color: var(--color-black);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 0;
-            position: relative;
-            transition: all 0.3s ease;
-            opacity: 0.8;
-        }
-
-        .nav-link:hover {
-            opacity: 1;
-            color: var(--color-accent);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Flytta språkknappen till menyn */
-        .language-toggle {
-            position: static; /* Ta bort fixed position */
-            margin-left: 20px;
-        }
-
-        .lang-btn {
-            background-color: var(--color-accent);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .lang-btn:hover {
-            background-color: var(--color-black);
-            transform: translateY(-2px);
-        }
-
-        /* Responsiv meny för mobil */
-        @media (max-width: 768px) {
-            .main-nav {
-                padding: 15px 5%;
-                flex-wrap: wrap;
-            }
-            
-            .nav-center {
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                gap: 20px;
-                margin-top: 15px;
-            }
-            
-            .nav-link {
-                font-size: 1rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            body {
-                padding-top: 100px; /* Mer padding på mobil pga fler rader i menyn */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-center {
-                gap: 15px;
-            }
-            
-            .nav-link {
-                font-size: 0.9rem;
-            }
-            
-            .logo {
-                font-size: 1.3rem;
-            }
-            
-            .lang-btn {
-                padding: 8px 15px;
-                font-size: 0.8rem;
-            }
-        }
-
-        header {
-            padding: 120px 5% 80px;
-            text-align: center;
-            background-color: var(--color-secondary);
-            border-bottom: 2px solid var(--color-accent);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(169, 142, 89, 0.1) 0%, rgba(228, 215, 190, 0.2) 100%);
-            z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--color-black);
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--color-black);
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 50px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 40px;
-            border: 5px solid var(--color-accent);
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background-color: var(--color-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--color-accent);
-        }
-
-        .profile-image i {
-            opacity: 0.8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 5%;
-        }
-
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.4rem;
-            font-weight: 600;
-            margin-bottom: 50px;
-            color: var(--color-black);
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.3px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background-color: var(--color-accent);
-            border-radius: 2px;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 35px;
-            margin-bottom: 80px;
-        }
-
-        .portfolio-category {
-            margin-bottom: 80px;
-        }
-
-        .project-card {
-            background-color: var(--color-light);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(169, 142, 89, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .contain-image {
-    object-fit: contain !important;
-}
-
-.project-image {
-    height: 300px;
-    background-color: var(--color-secondary); /* LÄGG TILL DENNA RAD */
-    border-radius: 16px 16px 0 0; /* LÄGG TILL DENNA RAD - rundade hörn upptill */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-accent);
-    font-size: 3.5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-        .project-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(169, 142, 89, 0.1), rgba(0, 0, 0, 0.05));
-        }
-
-        .project-image i {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-content {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--color-black);
-        }
-
-        .project-description {
-            color: var(--color-black);
-            opacity: 0.8;
-            margin-bottom: 25px;
-            flex-grow: 1;
-            font-size: 1.05rem;
-        }
-
-        .project-link {
-            background-color: var(--color-accent);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            align-self: flex-start;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .project-link:hover {
-            background-color: var(--color-black);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(169, 142, 89, 0.3);
-        }
-
-        /* Project Detail Page */
-        .project-detail {
-            display: none;
-            padding: 100px 5% 60px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .back-btn {
-            background-color: transparent;
-            color: var(--color-accent);
-            border: 2px solid var(--color-accent);
-            padding: 12px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-bottom: 50px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .back-btn i {
-            margin-right: 10px;
-        }
-
-        .back-btn:hover {
-            background-color: var(--color-accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .detail-header {
-            margin-bottom: 50px;
-        }
-
-        .detail-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--color-black);
-        }
-
-        .detail-overview {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            margin-bottom: 50px;
-            color: var(--color-black);
-            opacity: 0.9;
-        }
-
-        .project-hero-image {
-            width: auto;
-            height: auto;
-            border-radius: 16px;
-            margin: 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-
-        .project-hero-image i {
-            position: relative;
-            z-index: 1;
-        }
-
-        .image-caption {
-            text-align: center;
-            margin-top: 15px;
-            font-style: italic;
-            opacity: 0.7;
-            font-size: 0.95rem;
-        }
-
-        .detail-section {
-            margin-bottom: 60px;
-        }
-
-        .detail-section h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: var(--color-black);
-        }
-
-        .detail-section p {
-            margin-bottom: 25px;
-            color: var(--color-black);
-            opacity: 0.9;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .detail-section ul {
-            margin-left: 25px;
-            margin-bottom: 25px;
-        }
-
-        .detail-section li {
-            margin-bottom: 12px;
-            color: var(--color-black);
-            opacity: 0.9;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-.stats-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centrerar boxarna */
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.stat-box {
-    background-color: var(--color-secondary);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(169, 142, 89, 0.2);
-    flex: 1; /* Låter dem expandera jämnt */
-    min-width: 250px; /* Gör dem bredare - från 220px */
-    max-width: 300px; /* Sätter en maxbredd */
-}
-
-        .stat-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-value {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--color-black);
-            opacity: 0.8;
-            font-weight: 500;
-        }
-
-        .role-highlight {
-            background-color: var(--color-secondary);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid var(--color-accent);
-            margin-top: 20px;
-        }
-
-        .role-highlight p {
-            margin-bottom: 0;
-            font-style: italic;
-        }
-
-        footer {
-            background-color: var(--color-black);
-            color: var(--color-primary);
-            padding: 60px 5% 40px;
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        
-        .footer-text {
-            opacity: 0.8;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--color-primary);
-            opacity: 0.9;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .contact-item:hover {
-            opacity: 1;
-        }
-
-        
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .detail-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .detail-title {
-                font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .project-hero-image {
-                height: 300px;
-            }
-            
-            .profile-image {
-                width: 150px;
-                height: 150px;
-                font-size: 3rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            header {
-                padding: 100px 5% 60px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-            }
-            
-            .detail-title {
-                font-size: 1.8rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Stat description styling for better text handling */
-.stat-description {
-    font-size: 0.85rem;
-    color: var(--color-black);
-    opacity: 0.8;
-    margin-top: 10px;
-    line-height: 1.4;
-    min-height: 40px;
-    display: none;
-}
-
-body.swedish .stat-description.swedish,
-body.english .stat-description.english {
-    display: block;
-}
-
-/* Better responsive handling for stat boxes */
-/* Uppdatera dessa rader i din @media (max-width: 768px) */
-@media (max-width: 768px) {
-    .stat-box {
-        padding: 25px 20px; /* Lite mindre padding */
-        min-width: 220px; /* Mindre minbredd på tablet */
-        max-width: 250px;
-    }
-    
-    .stat-value {
-        font-size: 2rem;
-    }
-    
-    .stat-label {
-        font-size: 1rem;
-    }
-    
-    .stat-description {
-        font-size: 0.8rem;
-        min-height: 50px;
-    }
-}
-
-/* Uppdatera dessa rader i din @media (max-width: 576px) */
-@media (max-width: 576px) {
-    .stats-grid {
-        gap: 20px;
-        justify-content: center; /* Fortsätt centrera på mobil */
-    }
-    
-    .stat-box {
-        padding: 20px 15px;
-        min-width: 200px; /* Mindre på mobil */
-        max-width: 100%; /* Kan ta hela bredden om nödvändigt */
-        flex: 0 1 calc(50% - 10px); /* 2 boxar per rad på mobil */
-    }
-    
-    .stat-value {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.9rem;
-    }
-    
-    .stat-description {
-        font-size: 0.75rem;
-        min-height: 60px;
-    }
-}
-
-/* Extra liten skärm - 1 box per rad */
-@media (max-width: 400px) {
-    .stat-box {
-        flex: 0 1 100%; /* 1 box per rad */
-        min-width: auto;
-        max-width: 280px;
-    }
-}
-
-        /* Language-specific styles */
-        body.english .swedish,
-        body.swedish .english {
-            display: none;
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .project-card, .detail-section, .stat-box {
-            animation: fadeIn 0.5s ease-out;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body class="swedish">
-    <!-- Huvudmeny -->
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-left">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-thick">Marko Bradaric</span>
                 <span class="logo-thin"> / Portfolio</span>
-            </div>
+            </a>
         </div>
         
         <div class="nav-center">
-            <a href="#portfolioMain" class="nav-link" id="portfolioLink">
+            <a href="index.html" class="nav-link active">
                 <span class="swedish">Portfolio</span>
                 <span class="english">Portfolio</span>
             </a>
-            <a href="#" class="nav-link" id="aboutLink">
+            <a href="about.html" class="nav-link">
                 <span class="swedish">Om mig</span>
-                <span class="english">About</span>
+                <span class="english">About me</span>
             </a>
         </div>
         
@@ -831,1132 +37,216 @@ body.english .stat-description.english {
         </div>
     </nav>
 
-    <!-- Main Portfolio Page -->
-    <div id="portfolioMain">
-        <header>
-            <div class="header-bg"></div>
-            <div class="header-content">
-                <div class="profile-image">
-                      <img src="marko1.png" alt="Marko Bradaric" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h1>Marko Bradaric</h1>
-<p class="tagline swedish">UX Designer baserad i Stockholm</p>
-<p class="tagline english">UX Designer based in Stockholm</p>
+    <!-- Header -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <div class="profile-image">
+                <img src="marko1.png" alt="Marko Bradaric" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-        </header>
-
-        <div class="container">
-            <section class="portfolio-category">
-                <h2 class="section-title swedish">Projekt med arbetsgivare</h2>
-                <h2 class="section-title english">Projects with Employers</h2>
-                
-                <div class="portfolio-grid">
-                    <div class="project-card" data-project="immanuelskyrkan">
-                        <div class="project-image">
-                            <img src="1asidaimmanuel.png" alt="immanuel1a" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Immanuelskyrkan</h3>
-                            <p class="project-description swedish">En användarcentrerad redesign av webbplatsen för Immanuelskyrkan i Stockholm med fokus på tillgänglighet och förbättrad informationsstruktur.</p>
-                            <p class="project-description english">A user-centered redesign of the Immanuelskyrkan website in Stockholm with a focus on accessibility and improved information architecture.</p>
-                            <a class="project-link view-detail" data-project="immanuelskyrkan">
-                                <span class="swedish">Visa projekt</span>
-                                <span class="english">View project</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-project="hjärtstartarregistret">
-                        <div class="project-image">
-                            <img src="heartfront.png" alt="Hjärtstartarregistret" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Hjärtstartarregistret</h3>
-                            <p class="project-description swedish">Utveckling och förbättring av ett register för hjärtstartare med fokus på användarvänlighet och datahantering.</p>
-                            <p class="project-description english">Development and improvement of a register for heart starters with focus on user-friendliness and data management.</p>
-                            <a class="project-link view-detail" data-project="hjärtstartarregistret">
-                                <span class="swedish">Visa projekt</span>
-                                <span class="english">View project</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-project="botkyrka">
-                        <div class="project-image">
-                            <img src="MockupBotkyrka.jpg" alt="Botkyrka" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Botkyrka kommun</h3>
-                            <p class="project-description swedish">Digitala lösningar för Botkyrka kommun med fokus på tillgänglighet och användarvänlighet för invånare.</p>
-                            <p class="project-description english">Digital solutions for Botkyrka municipality focusing on accessibility and user-friendliness for residents.</p>
-                            <a class="project-link view-detail" data-project="botkyrka">
-                                <span class="swedish">Visa projekt</span>
-                                <span class="english">View project</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="portfolio-category">
-                <h2 class="section-title swedish">Programmeringsprojekt</h2>
-                <h2 class="section-title english">Programming Projects</h2>
-                
-                <div class="portfolio-grid">
-<div class="project-card" data-project="musikspelare">
-    <div class="project-image">
-        <img src="musikfront.png" alt="Musikspelare projekt" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Musikspelare</h3>
-                            <p class="project-description swedish">En interaktiv musikspelare med moderna funktioner och anpassningsgränssnitt.</p>
-                            <p class="project-description english">An interactive music player with modern features and customizable interface.</p>
-                            <a class="project-link view-detail" data-project="musikspelare">
-                                <span class="swedish">Visa projekt</span>
-                                <span class="english">View project</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-project="interaktivt-spel">
-                        <div class="project-image">
-                            <img src="spelfront.jpg" alt="Interaktivt spel" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Interaktivt spel</h3>
-                            <p class="project-description swedish">Ett engagerande interaktivt spel utvecklat med moderna webbtekniker.</p>
-                            <p class="project-description english">An engaging interactive game developed with modern web technologies.</p>
-                            <a class="project-link view-detail" data-project="interaktivt-spel">
-                                <span class="swedish">Visa projekt</span>
-                                <span class="english">View project</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-project="dont-do-drugs">
-                        <div class="project-image">
-                            <img src="drugs.png" alt="drugs" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Don't Do Drugs!</h3>
-                            <p class="project-description swedish">Ett informationsprojekt om drogprevention med interaktiva element och pedagogiskt innehåll.</p>
-                            <p class="project-description english">An information project about drug prevention with interactive elements and educational content.</p>
-                            <a class="project-link view-detail" data-project="dont-do-drugs">
-                                <span class="swedish">Visa projekt</span>
-                                <span class="english">View project</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <h1>Marko Bradaric</h1>
+            <p class="tagline swedish">UX Designer baserad i Stockholm</p>
+            <p class="tagline english">UX Designer based in Stockholm</p>
         </div>
-        
-        <footer>
-            <div class="footer-content">
-                <p class="footer-text swedish">Kontakta mig för samarbeten eller frågor om mina projekt</p>
-                <p class="footer-text english">Contact me for collaborations or questions about my projects</p>
-                
-                <div class="contact-info">
-                    <a href="mailto:markobradaric5@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>markobradaric5@gmail.com</span>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                
-                <p style="margin-top: 40px; opacity: 0.7;">© 2026 Marko Bradaric</p>
-            </div>
-        </footer>
-    </div>
-<!-- Om mig Page -->
-<div id="aboutPage" class="about-page" style="display: none;">
+    </header>
+
+    <!-- Main Content -->
     <div class="container">
-        
-        <div class="about-content">
-            <div class="about-header">
-                <h1 class="section-title swedish">Om mig</h1>
-                <h1 class="section-title english">About me</h1>
-                
-                <div class="about-image">
-                    <img src="markoportfolio.png" alt="Marko Bradaric" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 30px auto; display: block; border: 5px solid var(--color-accent);">
-                </div>
-            </div>
+        <section class="portfolio-category">
+            <h2 class="section-title swedish">Projekt med arbetsgivare</h2>
+            <h2 class="section-title english">Projects with Employers</h2>
             
-            <div class="about-text">
-                <p class="swedish">Jag heter Marko Bradaric, är 21 år och studerar IT, medier och design på Södertörns högskola. Under utbildningen har jag fastnat särskilt för UX/UI-design, där jag får kombinera struktur, analys och kreativt tänkande. Mitt intresse för webbutveckling började redan på gymnasiet, vilket har gett mig en teknisk förståelse som jag tar med mig in i designarbetet.</p>
-                
-                <p class="swedish">I mitt arbetssätt är jag lugn och metodisk. Även om stress ofta beskrivs som ett sätt att öka fokus, fungerar jag bäst när jag får arbeta strukturerat och genomtänkt. Jag lägger stor vikt vid att förstå användarna tidigt i processen och har svårt att ta fram idéer utan ordentlig research. För mig är användarinsikter grunden till bra designbeslut.</p>
-                
-                <p class="swedish">Jag gillar att utforska och inspireras av andras arbeten, upptäcka nya perspektiv och kontinuerligt utveckla mitt eget uttryck och arbetssätt. Design är för mig ett sätt att lösa problem – inte bara skapa något visuellt tilltalande.</p>
-                
-                <p class="swedish">Utanför studierna har jag ett stort intresse för fotboll, film och serier, och familjen är en viktig del av mitt liv. Dessa intressen påverkar också hur jag ser på design: som något som ska engagera, kännas mänskligt och fungera i vardagen.</p>
-                
-                <!-- English version -->
-                <p class="english">My name is Marko Bradaric, I'm 21 years old and I study IT, Media and Design at Södertörn University. During my studies, I've developed a particular interest in UX/UI design, where I get to combine structure, analysis and creative thinking. My interest in web development started already in high school, which has given me a technical understanding that I bring into my design work.</p>
-                
-                <p class="english">In my working style, I'm calm and methodical. Although stress is often described as a way to increase focus, I work best when I can work in a structured and thoughtful way. I place great importance on understanding users early in the process and find it difficult to come up with ideas without proper research. For me, user insights are the foundation of good design decisions.</p>
-                
-                <p class="english">I enjoy exploring and being inspired by others' work, discovering new perspectives and continuously developing my own expression and working methods. For me, design is a way to solve problems - not just create something visually appealing.</p>
-                
-                <p class="english">Outside of my studies, I have a great interest in football, movies and series, and family is an important part of my life. These interests also influence how I view design: as something that should engage, feel human and function in everyday life.</p>
-            </div>
-            
-            <div class="contact-info" style="margin-top: 50px; text-align: center;">
-                <h3 style="margin-bottom: 30px; font-family: 'Montserrat', sans-serif;">Kontakt</h3>
-                
-                <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+46 79 201 74 81</span>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="1asidaimmanuel.png" alt="Immanuelskyrkan" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>markobradaric5@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <span>linkedin.com/in/marko-bradaric-48a245311</span>
+                    <div class="project-content">
+                        <h3 class="project-title">Immanuelskyrkan</h3>
+                        <p class="project-description swedish">En användarcentrerad redesign av webbplatsen för Immanuelskyrkan i Stockholm.</p>
+                        <p class="project-description english">A user-centered redesign of the Immanuelskyrkan website in Stockholm.</p>
+                        <a href="immanuelskyrkan.html" class="project-link">
+                            <span class="swedish">Visa projekt</span>
+                            <span class="english">View project</span>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- Immanuelskyrkan Detail Page -->
-    <div id="project-immanuelskyrkan" class="project-detail">
-
-        
-        <div class="detail-header">
-            <h1 class="detail-title">Immanuelskyrkan</h1>
-            
-            <div class="project-hero-image">
-                <img src="immanuelinne.png" alt="immanuel2a" style="width: 100%; height: 100%;">
-            </div>
-            <p class="image-caption swedish">Bild från Immanuelskyrkan redesign-projekt logga in sidan</p>
-            <p class="image-caption english">Hero image for Immanuelskyrkan redesign project</p>
-            
-            <div class="detail-overview swedish">
-                Som en del av kursen Medieteknik i organisation och samhälle ledde jag designprojektet för Immanuelskyrkan i Stockholm, en mångkulturell och frikyrklig organisation med verksamhet på tre språk. Kyrkans befintliga webbplats hade svårt att möta användarnas behov – särskilt äldre och mobila användare – vilket resulterade i förvirring, svårnavigerade menyer och brist på uppdaterad information.
-                <br><br>
-                Mitt uppdrag var att ta fram en användarcentrerad redesign av webbplatsen som skulle öka tillgänglighet, förbättra informationsstrukturen och skapa en mer engagerande digital upplevelse för kyrkans breda målgrupp.
-            </div>
-            <div class="detail-overview english">
-                As part of the course Media Technology in Organization and Society, I led the design project for Immanuelskyrkan in Stockholm, a multicultural and free church organization with activities in three languages. The church's existing website struggled to meet users' needs - especially older and mobile users - resulting in confusion, hard-to-navigate menus, and lack of updated information.
-                <br><br>
-                My mission was to develop a user-centered redesign of the website that would increase accessibility, improve the information structure, and create a more engaging digital experience for the church's broad target audience.
-            </div>
-        </div>
-        
-        <div class="detail-section">
-            <h3 class="swedish">Problemet</h3>
-            <h3 class="english">The Problem</h3>
-            <p class="swedish">Immanuelskyrkans tidigare webbplats var inte anpassad till dagens användarbeteenden. Den hade en otydlig menystruktur, svår navigering i mobilen och brist på uppdaterad information, vilket gjorde att många användare istället sökte information via sociala medier. Kyrkan saknade även en tydlig process för hur innehåll skulle uppdateras, vilket ytterligare försämrade trovärdigheten och användarupplevelsen.</p>
-            <p class="english">Immanuelskyrkan's previous website was not adapted to today's user behaviors. It had an unclear menu structure, difficult mobile navigation, and lack of updated information, which meant many users instead sought information via social media. The church also lacked a clear process for how content should be updated, which further undermined credibility and user experience.</p>
-            
-            <p class="swedish">Genom att kombinera kvantitativa data från Google Analytics med kvalitativa insikter från intervjuer och enkäter, identifierade jag tre huvudproblem:</p>
-            <p class="english">By combining quantitative data from Google Analytics with qualitative insights from interviews and surveys, I identified three main problems:</p>
-            
-            <ul class="swedish">
-                <li>Låg upplevd tillgänglighet, särskilt på mobil.</li>
-                <li>Otydlig informationsstruktur och inkonsekvent språk.</li>
-                <li>Begränsad förståelse för användarnas faktiska beteenden och behov</li>
-            </ul>
-            <ul class="english">
-                <li>Low perceived accessibility, especially on mobile.</li>
-                <li>Unclear information structure and inconsistent language.</li>
-                <li>Limited understanding of users' actual behaviors and needs</li>
-            </ul>
-        </div>
-        
-        <div class="detail-section">
-            <h3 class="swedish">Designprocess</h3>
-            <h3 class="english">Design Process</h3>
-            <p class="swedish">Jag drev projektet enligt en användarcentrerad designprocess: empathize → define → ideate → prototype → test.</p>
-            <p class="english">I drove the project according to a user-centered design process: empathize → define → ideate → prototype → test.</p>
-            
-            <p class="swedish">Först genomförde jag och mitt team semistrukturerade intervjuer och enkäter på flera språk, vilket gav oss ett brett underlag av användarbehov. Jag ansvarade för att leda intervjuerna, analysera svaren och visualisera insikterna i Miro. Där skapade jag även en empatikarta och personas som representerade olika användargrupper – från äldre svenska församlingsmedlemmar till koreanska besökare.</p>
-            <p class="english">First, my team and I conducted semi-structured interviews and surveys in several languages, which gave us a broad basis of user needs. I was responsible for leading the interviews, analyzing the responses, and visualizing the insights in Miro. There I also created an empathy map and personas representing different user groups - from older Swedish congregation members to Korean visitors.</p>
-            
-            <p class="swedish">Utifrån dessa insikter utvecklade jag en hi-fi-prototyp i Figma, där jag designade centrala delar som kalendersidan, personalsidan och den mobila inloggningen. Jag implementerade även en förbättrad drop-down-meny och sidonavigering för att underlätta orientering.</p>
-            <p class="english">Based on these insights, I developed a hi-fi prototype in Figma, where I designed key parts such as the calendar page, staff page, and mobile login. I also implemented an improved drop-down menu and page navigation to facilitate orientation.</p>
-            
-            <p class="swedish">Genom iterativa användartester kunde jag mäta konkreta förbättringar och justera designen baserat på direkt feedback. Jag tog även fram testscenarier och metod för att säkerställa jämförbarhet mellan den gamla och nya versionen.</p>
-            <p class="english">Through iterative user testing, I was able to measure concrete improvements and adjust the design based on direct feedback. I also developed test scenarios and methods to ensure comparability between the old and new versions.</p>
-        </div>
-        
-        <div class="detail-section">
-            <h3 class="swedish">Lösning och resultat</h3>
-            <h3 class="english">Solution and Results</h3>
-            <p class="swedish">Resultatet blev en modern, tydlig och inkluderande webbplats som löste de största användarproblemen. Tack vare förbättrad struktur, mobilanpassning och visuellt tydliga menyer ökade både effektivitet och användarnöjdhet markant.</p>
-            <p class="english">The result was a modern, clear, and inclusive website that solved the biggest user problems. Thanks to improved structure, mobile adaptation, and visually clear menus, both efficiency and user satisfaction increased significantly.</p>
-            
-<div style="height: 600px; margin: 30px 0; border-radius: 12px;">
-    <img src="immanuelIphone.png" alt="immanuelphone" style="height: 100%; margin-left: 270px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-</div>
-            <p class="image-caption swedish">Slutlig design och implementation</p>
-            <p class="image-caption english">Final design and implementation</p>
-            
-            <p class="swedish">De kvantitativa resultaten från användartesterna talar för sig själva:</p>
-            <p class="english">The quantitative results from the user tests speak for themselves:</p>
-            
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-value">67%</div>
-                    <div class="stat-label swedish">Snabbare uppgifter utförda</div>
-                    <div class="stat-label english">Faster tasks completed</div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="heartfront.png" alt="Hjärtstartarregistret" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hjärtstartarregistret</h3>
+                        <p class="project-description swedish">Utveckling och förbättring av ett register för hjärtstartare.</p>
+                        <p class="project-description english">Development and improvement of a register for heart starters.</p>
+                        <a href="hjartstartarregistret.html" class="project-link">
+                            <span class="swedish">Visa projekt</span>
+                            <span class="english">View project</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value">64%</div>
-                    <div class="stat-label swedish">Färre klick för att nå mål</div>
-                    <div class="stat-label english">Fewer clicks to reach goals</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value">45%</div>
-                    <div class="stat-label swedish">Minskad frustration i användarupplevelsen</div>
-                    <div class="stat-label english">Reduced frustration in user experience</div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="MockupBotkyrka.jpg" alt="Botkyrka kommun" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Botkyrka kommun</h3>
+                        <p class="project-description swedish">Digitala lösningar för Botkyrka kommun med fokus på tillgänglighet.</p>
+                        <p class="project-description english">Digital solutions for Botkyrka municipality focusing on accessibility.</p>
+                        <a href="botkyrka.html" class="project-link">
+                            <span class="swedish">Visa projekt</span>
+                            <span class="english">View project</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <p class="swedish" style="margin-top: 40px;">Dessa förbättringar visar tydligt effekten av ett metodiskt UX-arbete och hur datadrivna designbeslut kan skapa verkligt värde.</p>
-            <p class="english" style="margin-top: 40px;">These improvements clearly show the effect of methodological UX work and how data-driven design decisions can create real value.</p>
-            
-            <p class="swedish">Projektet resulterade inte bara i en mer användarvänlig webbplats utan också i en starkare digital identitet för Immanuelskyrkan – en plattform som nu bättre speglar kyrkans öppenhet och mångkulturella gemenskap.</p>
-            <p class="english">The project resulted not only in a more user-friendly website but also in a stronger digital identity for Immanuelskyrkan - a platform that now better reflects the church's openness and multicultural community.</p>
-        </div>
+        </section>
         
-        <div class="detail-section">
-            <h3 class="swedish">Min roll</h3>
-            <h3 class="english">My Role</h3>
-            <div class="role-highlight">
-                <p class="swedish">Jag hade en central rol i projektet och ansvarade för hela processen, från ledning av intervjuer, datainsamling och analys, till visualisering av insikter i Miro och utveckling av personas. Jag arbetade även med design och prototypframtagning i Figma, planerade och genomförde användartester samt presenterade resultaten för uppdragsgivaren med fokus på iterativ förbättring. Som projektets drivande kraft såg jag till att alla designbeslut grundades i faktiska användarbehov och att processen höll hög metodisk kvalitet, från den första intervjun till den färdiga prototypen.</p>
-                <p class="english">I had a central role in the project and was responsible for the entire process, from leading interviews, data collection and analysis, to visualizing insights in Miro and developing personas. I also worked with design and prototype development in Figma, planned and conducted user tests, and presented the results to the client with a focus on iterative improvement. As the driving force of the project, I ensured that all design decisions were based on actual user needs and that the process maintained high methodological quality, from the first interview to the finished prototype.</p>
+        <section class="portfolio-category">
+            <h2 class="section-title swedish">Programmeringsprojekt</h2>
+            <h2 class="section-title english">Programming Projects</h2>
+            
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="musikfront.png" alt="Musikspelare" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Musikspelare</h3>
+                        <p class="project-description swedish">En interaktiv musikspelare med moderna funktioner.</p>
+                        <p class="project-description english">An interactive music player with modern features.</p>
+                        <a href="musikspelare.html" class="project-link">
+                            <span class="swedish">Visa projekt</span>
+                            <span class="english">View project</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="spelfront.jpg" alt="Interaktivt spel" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interaktivt spel</h3>
+                        <p class="project-description swedish">Ett engagerande interaktivt spel utvecklat med moderna webbtekniker.</p>
+                        <p class="project-description english">An engaging interactive game developed with modern web technologies.</p>
+                        <a href="interaktivt-spel.html" class="project-link">
+                            <span class="swedish">Visa projekt</span>
+                            <span class="english">View project</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="drugs.png" alt="Don't Do Drugs" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Don't Do Drugs!</h3>
+                        <p class="project-description swedish">Ett informationsprojekt om drogprevention med interaktiva element.</p>
+                        <p class="project-description english">An information project about drug prevention with interactive elements.</p>
+                        <a href="dont-do-drugs.html" class="project-link">
+                            <span class="swedish">Visa projekt</span>
+                            <span class="english">View project</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 
-    <!-- Hjärtstartarregistret Detail Page -->
-<div id="project-hjärtstartarregistret" class="project-detail">
     
-    <div class="detail-header">
-        <h1 class="detail-title">Hjärtstartarregistret</h1>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text swedish">Kontakta mig för samarbeten eller frågor om mina projekt</p>
+            <p class="footer-text english">Contact me for collaborations or questions about my projects</p>
             
-            <div class="project-hero-image">
-                <img src="heartfront.png" alt="immanuel2a" style="width: 100%; height: 100%;">
+            <div class="contact-info">
+                <a href="mailto:markobradaric5@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>markobradaric5@gmail.com</span>
+                </a>
+                <a href="linkedin.com/in/marko-bradaric-48a245311" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
             </div>
-        <p class="image-caption swedish">Hjärtstartarregistret - Digital plattform för livräddande verktyg</p>
-        <p class="image-caption english">Heart Starter Registry - Digital platform for life-saving tools</p>
-        
-        <div class="detail-overview swedish">
-            Som en del av kursen Designmetoder och kreativa processer på Södertörns högskola deltog jag i ett projekt i samarbete med konsultbolaget Decerno, kopplat till Hjärtstartarregistret. Utmaningen var att besvara frågan:
-            <br><br>
-            "Hur kan man rädda fler människor från hjärtstopp i Sverige med hjälp av hjärtstartare?"
-            <br><br>
-            Jag ledde arbetet med att ta fram ett koncept och en prototyp som skulle förbättra tillgängligheten och användarupplevelsen för Hjärtstartarregistrets digitala plattform. Vi fokuserade särskilt på att göra registret mer inkluderande och användbart för personer som inte talar svenska, samtidigt som vi ville öka medvetenheten om hjärtstopp och tillgången till hjärtstartare i hela Sverige.
-        </div>
-        <div class="detail-overview english">
-            As part of the course Design Methods and Creative Processes at Södertörn University, I participated in a project in collaboration with the consulting firm Decerno, connected to the Heart Starter Registry. The challenge was to answer the question:
-            <br><br>
-            "How can we save more people from cardiac arrest in Sweden using heart starters?"
-            <br><br>
-            I led the work to develop a concept and prototype that would improve the accessibility and user experience of the Heart Starter Registry's digital platform. We focused particularly on making the registry more inclusive and useful for people who don't speak Swedish, while also increasing awareness about cardiac arrest and access to heart starters throughout Sweden.
-        </div>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Problemet</h3>
-        <h3 class="english">The Problem</h3>
-        <p class="swedish">Hjärtstartarregistrets nuvarande webbplats erbjuder viktig samhällsinformation – men den når inte alla. Den största utmaningen som identifierades var att sidan endast finns på svenska, vilket utestänger en stor del av befolkningen som inte är språkligt bekväm.</p>
-        <p class="english">The Heart Starter Registry's current website offers important public information – but it doesn't reach everyone. The biggest challenge identified was that the site only exists in Swedish, which excludes a large portion of the population who are not linguistically comfortable.</p>
-    
-        
-        <p class="swedish">Dessutom saknade webbplatsen engagerande innehåll som uppmuntrar återkommande användning eller sprider kunskap om hjärtstopp. Många användare upplevde sidan som statisk, svårnavigerad och informationsmässigt begränsad.</p>
-        <p class="english">Additionally, the website lacked engaging content that encourages recurring use or spreads knowledge about cardiac arrest. Many users experienced the site as static, difficult to navigate, and informationally limited.</p>
-        
-        <p class="swedish">Jag identifierade tre huvudproblem:</p>
-        <p class="english">I identified three main problems:</p>
-        
-        <ul class="swedish">
-            <li>Bristande språklig tillgänglighet.</li>
-            <li>Lågt användarengagemang och återbesök.</li>
-            <li>Avsaknad av digitala verktyg för att sprida kunskap och skapa delaktighet.</li>
-        </ul>
-        <ul class="english">
-            <li>Inadequate language accessibility.</li>
-            <li>Low user engagement and return visits.</li>
-            <li>Lack of digital tools to spread knowledge and create participation.</li>
-        </ul>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Designprocess</h3>
-        <h3 class="english">Design Process</h3>
-        <p class="swedish">Projektet byggde på Design Thinking-metodens fem steg: Empathize, Define, Ideate, Prototype, Test.</p>
-        <p class="english">The project was based on the five steps of the Design Thinking method: Empathize, Define, Ideate, Prototype, Test.</p>
-        
-        <p class="swedish">Jag tog ansvar för att leda empatifasen, där vi genomförde intervjuer, observationer och stakeholder mapping för att förstå målgruppernas behov. Jag utformade och analyserade empatikartan samt deltog i möten med Thomas Hermansson, projektansvarig för Hjärtstartarregistret, vilket gav värdefulla insikter i organisationens interna utmaningar.</p>
-        <p class="english">I took responsibility for leading the empathize phase, where we conducted interviews, observations, and stakeholder mapping to understand the target groups' needs. I designed and analyzed the empathy map and participated in meetings with Thomas Hermansson, project manager for the Heart Starter Registry, which provided valuable insights into the organization's internal challenges.</p>
-        
-        <p class="swedish">Under Define-fasen drev jag arbetet med att formulera vår problemdefinition och målgrupp. Jag tog fram personas – bland annat Gordana, en användare som representerade personer med begränsade svenskkunskaper – för att förankra designbesluten i verkliga behov.</p>
-        <p class="english">During the Define phase, I drove the work of formulating our problem definition and target audience. I developed personas – including Gordana, a user representing people with limited Swedish knowledge – to anchor design decisions in real needs.</p>
-        
-        <p class="swedish">I Ideate-fasen faciliterade jag flera kreativa workshops där vi använde metoder som What Would Catwoman Do, footstorming och brainwriting. Jag drev på beslutet att implementera AI-baserad översättning och ett nyhetsflöde som kärnfunktioner – lösningar som direkt adresserade tillgänglighet och engagemang.</p>
-        <p class="english">In the Ideate phase, I facilitated several creative workshops where we used methods like What Would Catwoman Do, footstorming, and brainwriting. I drove the decision to implement AI-based translation and a news feed as core functions – solutions that directly addressed accessibility and engagement.</p>
-        
-        <p class="swedish">Därefter ansvarade jag för prototypframtagningen i Figma, där jag utformade gränssnitt, ikonografi och interaktiva flöden.</p>
-        <p class="english">Thereafter, I was responsible for prototype development in Figma, where I designed interfaces, iconography, and interactive flows.</p>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Lösning och resultat</h3>
-        <h3 class="english">Solution and Results</h3>
-        <p class="swedish">Den slutliga prototypen är en moderniserad version av Hjärtstartarregistrets webbplats, framtagen för att vara inkluderande, informativ och engagerande.</p>
-        <p class="english">The final prototype is a modernized version of the Heart Starter Registry website, designed to be inclusive, informative, and engaging.</p>
-        
-        <p class="swedish">De två centrala funktionerna är:</p>
-        <p class="english">The two central functions are:</p>
-        
-        <ul class="swedish">
-            <li><strong>AI-baserad översättning:</strong> Gör webbplatsen tillgänglig på över 20 språk och öppnar upp för en bredare användarbas.</li>
-            <li><strong>Nyhetsflöde:</strong> Ger användare relevanta artiklar, filmer och informationsblad som enkelt kan delas på sociala medier.</li>
-        </ul>
-        <ul class="english">
-            <li><strong>AI-based translation:</strong> Makes the website accessible in over 20 languages and opens up to a broader user base.</li>
-            <li><strong>News feed:</strong> Provides users with relevant articles, videos, and information sheets that can easily be shared on social media.</li>
-        </ul>
-        
-        <p class="swedish">Testfasen genomfördes både med designstudenter och användare i målgruppen. Feedbacken visade att funktionerna upplevdes som lättanvända, relevanta och motiverande.</p>
-        <p class="english">The testing phase was conducted both with design students and target audience users. The feedback showed that the functions were experienced as easy to use, relevant, and motivating.</p>
-        
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-value">20+</div>
-                <div class="stat-label swedish">Språk med AI-översättning</div>
-                <div class="stat-label english">Languages with AI translation</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">85%</div>
-                <div class="stat-label swedish">Användare kände sig mer engagerade</div>
-                <div class="stat-label english">Users felt more engaged</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">92%</div>
-                <div class="stat-label swedish">Ökad förståelse för hjärtstopp</div>
-                <div class="stat-label english">Increased understanding of cardiac arrest</div>
-            </div>
-        </div>
-        
-        <p class="swedish" style="margin-top: 40px;">Trots att projektet inte nådde produktionsstadiet demonstrerade resultatet hur datadrivet UX-arbete och användarcentrerad design kan öka medvetenheten kring livräddande verktyg. Vår prototyp visar potential att:</p>
-        <p class="english" style="margin-top: 40px;">Although the project didn't reach production stage, the results demonstrated how data-driven UX work and user-centered design can increase awareness about life-saving tools. Our prototype shows potential to:</p>
-        
-        <ul class="swedish">
-            <li>Öka tillgången till hjärtstartarregistret för fler språkgrupper.</li>
-            <li>Öka användarengagemang och återkommande besök.</li>
-            <li>Skapa en inkluderande plattform som främjar kunskapsspridning om hjärtstopp.</li>
-        </ul>
-        <ul class="english">
-            <li>Increase access to the heart starter registry for more language groups.</li>
-            <li>Increase user engagement and return visits.</li>
-            <li>Create an inclusive platform that promotes knowledge dissemination about cardiac arrest.</li>
-        </ul>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Min roll</h3>
-        <h3 class="english">My Role</h3>
-        <div class="role-highlight">
-            <p class="swedish">Jag hade en central och ledande roll i projektet och ansvarade för flera nyckelområden inom både analys, design och användartestning. Jag planerade och genomförde intervjuer samt användartester för att få en djupare förståelse av målgruppen och deras behov. Utifrån insikterna skapade jag empatikartor, personas och stakeholder maps som låg till grund för den fortsatta designprocessen.</p>
-            <p class="swedish">Jag ledde arbetet med att formulera problemdefinitionen och drev idéutvecklingen framåt genom kreativa metoder och strukturerade workshops. Under prototypfasen designade jag gränssnittet i Figma och utvecklade en interaktiv version av webbplatsen, där jag även integrerade en AI-baserad översättningsfunktion för att öka tillgängligheten. Jag ansvarade också för att presentera konceptet för uppdragsgivaren, samla in feedback och iterera designen baserat på de insikter som framkom.</p>
-            <p class="swedish">Genom att ta ett helhetsgrepp över processen – från analys till test – lyckades jag förvandla en bred samhällsutmaning till ett konkret, datadrivet och mänskligt centrerat koncept. Projektet blev ett tydligt exempel på hur empati, teknisk förståelse och strategisk design kan samverka för att skapa lösningar som faktiskt har potential att rädda liv.</p>
             
-            <p class="english">I had a central and leading role in the project and was responsible for several key areas within analysis, design, and user testing. I planned and conducted interviews and user tests to gain a deeper understanding of the target audience and their needs. Based on the insights, I created empathy maps, personas, and stakeholder maps that formed the foundation for the continued design process.</p>
-            <p class="english">I led the work of formulating the problem definition and drove idea development forward through creative methods and structured workshops. During the prototype phase, I designed the interface in Figma and developed an interactive version of the website, where I also integrated an AI-based translation function to increase accessibility. I was also responsible for presenting the concept to the client, gathering feedback, and iterating the design based on the insights that emerged.</p>
-            <p class="english">By taking a holistic approach to the process – from analysis to testing – I succeeded in transforming a broad societal challenge into a concrete, data-driven, and human-centered concept. The project became a clear example of how empathy, technical understanding, and strategic design can work together to create solutions that actually have the potential to save lives.</p>
+            <p style="margin-top: 40px; opacity: 0.7;">© 2026 Marko Bradaric</p>
         </div>
-    </div>
-</div>
+    </footer>
 
-<!-- Musikspelare Detail Page -->
-<div id="project-musikspelare" class="project-detail">
-    
-    <div class="detail-header">
-        <h1 class="detail-title">Musikspelare</h1>
-        
-            <div class="project-hero-image">
-                <img src="musikfront.png" alt="musik" style="width: 100%; height: 100%;">
-            </div>
-        <p class="image-caption swedish">Interaktiv musikspelare med ljuddrivna visualiseringar</p>
-        <p class="image-caption english">Interactive music player with audio-driven visualizations</p>
-        
-        <div class="detail-overview swedish">
-            Vårt projekt fokuserade på att arbeta med ljud och visualiseringar, där vi valde att skapa en förbättrad version av Spotify. Vi identifierade att många musikplattformar erbjuder en statisk och tråkig användarupplevelse med få visuella effekter när musik spelas.
-            <br><br>
-            Vår vision sammanfattas i sloganen: "Vissa plattformar erbjuder en spellista; vi ger dig en personlig konsert." Vi ville transformera den passiva lyssnarupplevelsen till en interaktiv och levande konsertupplevelse där visuella element reagerar dynamiskt på musiken.
-        </div>
-        <div class="detail-overview english">
-            Our project focused on working with audio and visualizations, where we chose to create an enhanced version of Spotify. We identified that many music platforms offer a static and boring user experience with few visual effects when music is playing.
-            <br><br>
-            Our vision is summarized in the slogan: "Some platforms offer a playlist; we give you a personal concert." We wanted to transform the passive listening experience into an interactive and living concert experience where visual elements react dynamically to the music.
-        </div>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Problemet och vision</h3>
-        <h3 class="english">Problem and Vision</h3>
-        <p class="swedish">Traditionella musikspelare fokuserar främst på funktionalitet snarare än upplevelse. De erbjuder sällan något visuellt engagemang eller interaktion med musiken, vilket gör att användaren förblir en passiv lyssnare istället för en aktiv deltagare.</p>
-        <p class="english">Traditional music players primarily focus on functionality rather than experience. They rarely offer any visual engagement or interaction with the music, which keeps the user as a passive listener rather than an active participant.</p>
-        
-        <p class="swedish">Vi inspirerades av visuella effekter i musikvideor och spel, där rytm och ljud styr animationer och grafiska uttryck. Begrepp som "interaktivitet", "visualisering" och "ljuddriven design" beskriver väl vårt uttryck. Vi ville att användaren skulle känna sig mer engagerad i musiken på ett visuellt och känslomässigt sätt.</p>
-        <p class="english">We were inspired by visual effects in music videos and games, where rhythm and sound control animations and graphic expressions. Concepts like "interactivity", "visualization", and "audio-driven design" well describe our expression. We wanted the user to feel more engaged with the music in a visual and emotional way.</p>
-        
-        <p class="swedish">De tre huvudmål vi identifierade:</p>
-        <p class="english">The three main goals we identified:</p>
-        
-        <ul class="swedish">
-            <li>Skapa visuella effekter som reagerar i realtid på musikens frekvenser</li>
-            <li>Göra användarupplevelsen mer interaktiv och engagerande</li>
-            <li>Utveckla ett responsivt och intuitivt gränssnitt för musikspelning</li>
-        </ul>
-        <ul class="english">
-            <li>Create visual effects that react in real-time to music frequencies</li>
-            <li>Make the user experience more interactive and engaging</li>
-            <li>Develop a responsive and intuitive interface for music playback</li>
-        </ul>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Designprocess och implementering</h3>
-        <h3 class="english">Design Process and Implementation</h3>
-        <p class="swedish">Projektet genomfördes med en iterativ designprocess där vi kontinuerligt testade och förbättrade både funktionalitet och estetik.</p>
-        <p class="english">The project was carried out with an iterative design process where we continuously tested and improved both functionality and aesthetics.</p>
-        
-        <p class="swedish"><strong>Tekniska utmaningar och lösningar:</strong></p>
-        <p class="english"><strong>Technical challenges and solutions:</strong></p>
-        
-        <ul class="swedish">
-            <li><strong>JavaScript-länkning:</strong> Vi stötte initialt på problem med att länka JavaScript korrekt till vår HTML-fil, vilket ledde till att vi temporärt behövde skriva script direkt i HTML innan vi löste detta.</li>
-            <li><strong>Progressbar:</strong> Vi hade svårigheter med att implementera en dragbar progressbar för låtarna. Som lösning valde vi att lägga till andra förbättrade funktioner som kunde kompensera för detta.</li>
-            <li><strong>Ljudvisualisering:</strong> Att få visualiseringarna att reagera smidigt på ljudet krävde omfattande testning och justering av frekvensanalys.</li>
-        </ul>
-        <ul class="english">
-            <li><strong>JavaScript linking:</strong> We initially encountered problems linking JavaScript correctly to our HTML file, which led to us temporarily writing scripts directly in HTML before solving this.</li>
-            <li><strong>Progress bar:</strong> We had difficulties implementing a draggable progress bar for the songs. As a solution, we chose to add other enhanced features that could compensate for this.</li>
-            <li><strong>Audio visualization:</strong> Getting the visualizations to react smoothly to the sound required extensive testing and adjustment of frequency analysis.</li>
-        </ul>
-        
-        <p class="swedish">Vi använde olika resurser för att ta oss förbi hinder, främst Youtube-videor och ChatGPT, för att förstå hur man kan arbeta med ljudfrekvenser och detaljerade visualiseringar.</p>
-        <p class="english">We used various resources to overcome obstacles, mainly YouTube videos and ChatGPT, to understand how to work with audio frequencies and detailed visualizations.</p>
-        
-        <p class="swedish">Den mesta tiden ägnade vi åt att få visualiseringarna att reagera smidigt på ljudet och att testa olika animationer, färger och effekter för att skapa en känsla av en "levande konsert".</p>
-        <p class="english">Most of our time was spent getting the visualizations to react smoothly to the sound and testing different animations, colors, and effects to create a feeling of a "living concert."</p>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Designkritik och iteration</h3>
-        <h3 class="english">Design Critique and Iteration</h3>
-        <p class="swedish">Under projektets gång fick vi värdefull feedback som hjälpte oss att förbättra vår design.</p>
-        <p class="english">During the project, we received valuable feedback that helped us improve our design.</p>
-        
-        <p class="swedish"><strong>Feedback och våra ändringar:</strong></p>
-        <p class="english"><strong>Feedback and our changes:</strong></p>
-        
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-value">1</div>
-                <div class="stat-label swedish">Bildförbättring</div>
-                <div class="stat-label english">Image Enhancement</div>
-                <p class="swedish" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Bilderna gjordes större och mer framträdande</p>
-                <p class="english" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Images made larger and more prominent</p>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">2</div>
-                <div class="stat-label swedish">Visuell respons</div>
-                <div class="stat-label english">Visual Response</div>
-                <p class="swedish" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Ökad "skakningseffekt" för bättre musiksynk</p>
-                <p class="english" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Increased "shake effect" for better music sync</p>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">3</div>
-                <div class="stat-label swedish">Interaktivitet</div>
-                <div class="stat-label english">Interactivity</div>
-                <p class="swedish" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Förbättrad användarkontroll över visualiseringar</p>
-                <p class="english" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Improved user control over visualizations</p>
-            </div>
-        </div>
-        
-        <p class="swedish" style="margin-top: 30px;">Vi fick inte mycket kritik på själva koden, men designkritiken pekade på att våra bilder kunde skakas ännu mer för att förstärka effekten av musiken. Vi åtgärdade detta genom att göra bilderna större och mer framträdande.</p>
-        <p class="english" style="margin-top: 30px;">We didn't receive much criticism of the code itself, but the design critique pointed out that our images could shake even more to enhance the effect of the music. We addressed this by making the images larger and more prominent.</p>
-        
-        <p class="swedish">Det fanns även förslag på att lägga till fler "bubblor" från bilderna, men vi hann tyvärr inte implementera detta i den här versionen. Denna feedback har dock dokumenterats för framtida iterationer.</p>
-        <p class="english">There were also suggestions to add more "bubbles" from the images, but unfortunately, we didn't have time to implement this in this version. However, this feedback has been documented for future iterations.</p>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Resultat och lärdomar</h3>
-        <h3 class="english">Results and Learnings</h3>
-        <div class="role-highlight">
-            <p class="swedish"><strong>Slutresultat:</strong> Vi skapade en fullt fungerande interaktiv musikspelare med ljuddrivna visualiseringar som förvandlar vanlig musiklyssning till en visuell upplevelse. Användare kan nu se hur musiken "kommer till liv" genom animerade effekter som reagerar på låtens rytm och frekvenser.</p>
-            
-            <p class="swedish"><strong>Tekniska lärdomar:</strong> Projektet gav oss värdefull erfarenhet av att kombinera ljud och grafik, samt hantera problem i JavaScript och användarinteraktioner. Vi lärde oss speciellt mycket om:</p>
-            <ul class="swedish">
-                <li>Web Audio API för ljudanalys och frekvenshantering</li>
-                <li>CSS-animationer och transitions för visuella effekter</li>
-                <li>Responsiv design för musikapplikationer</li>
-                <li>Hantering av användarinteraktion med mediaelement</li>
-            </ul>
-            
-            <p class="swedish"><strong>Designlärdomar:</strong> Vi förstod bättre hur man kan skapa en engagerande och interaktiv upplevelse för användaren genom att kombinera funktionalitet med estetik. Projekten lärde oss vikten av att:</p>
-            <ul class="swedish">
-                <li>Testa kontinuerligt med användare för att få feedback på visuella effekter</li>
-                <li>Balansera funktionella krav med estetiska mål</li>
-                <li>Iterera design baserat på användarnas emotionella respons</li>
-            </ul>
-            
-            <p class="swedish"><strong>Framtida möjligheter:</strong> Projektet har skapat en stark grund för fortsatt utveckling av interaktiva mediaupplevelser. Nästa steg skulle kunna vara att integrera med befintliga musikplattformars API:er eller utveckla en mobilapplikation med liknande funktionalitet.</p>
-            
-            <p class="english"><strong>Final result:</strong> We created a fully functional interactive music player with audio-driven visualizations that transforms ordinary music listening into a visual experience. Users can now see how the music "comes to life" through animated effects that react to the song's rhythm and frequencies.</p>
-            
-            <p class="english"><strong>Technical learnings:</strong> The project gave us valuable experience in combining audio and graphics, as well as handling problems in JavaScript and user interactions. We particularly learned a lot about:</p>
-            <ul class="english">
-                <li>Web Audio API for audio analysis and frequency handling</li>
-                <li>CSS animations and transitions for visual effects</li>
-                <li>Responsive design for music applications</li>
-                <li>Handling user interaction with media elements</li>
-            </ul>
-            
-            <p class="english"><strong>Design learnings:</strong> We better understood how to create an engaging and interactive experience for the user by combining functionality with aesthetics. The projects taught us the importance of:</p>
-            <ul class="english">
-                <li>Continuously testing with users to get feedback on visual effects</li>
-                <li>Balancing functional requirements with aesthetic goals</li>
-                <li>Iterating design based on users' emotional responses</li>
-            </ul>
-            
-            <p class="english"><strong>Future opportunities:</strong> The project has created a strong foundation for continued development of interactive media experiences. The next step could be to integrate with existing music platforms' APIs or develop a mobile application with similar functionality.</p>
-        </div>
-    </div>
-</div>
-
-<!-- Interaktivt Spel Detail Page -->
-<div id="project-interaktivt-spel" class="project-detail">
-    
-    <div class="detail-header">
-        <h1 class="detail-title">Interaktivt Rymdspel</h1>
-        
-            <div class="project-hero-image">
-                <img src="spelfront.jpg" alt="spel" style="width: 100%; height: 100%;">
-            </div>
-        <p class="image-caption swedish">Objektorienterat rymdspel med boss fights</p>
-        <p class="image-caption english">Object-oriented space game with boss fights</p>
-        
-        <div class="detail-overview swedish">
-            I det här projektet ville vi skapa ett spel som kombinerar action, rymd och strategi – inspirerat av klassiska arkadspel som Galaxy Attack och Space Invaders, men med vår egen twist. Spelet utvecklades som en del av en kurs i objektorienterad programmering med fokus på att använda externa bibliotek.
-            <br><br>
-            Spelaren styr ett rymdskepp som måste undvika och skjuta ner fallande meteorer, och efter en viss poängsumma dyker ett stort monster upp som fungerar som en boss. Ju mer spelaren skjuter på monstret, desto fler poäng får man.
-        </div>
-        <div class="detail-overview english">
-            In this project, we wanted to create a game that combines action, space, and strategy – inspired by classic arcade games like Galaxy Attack and Space Invaders, but with our own twist. The game was developed as part of a course in object-oriented programming focusing on using external libraries.
-            <br><br>
-            The player controls a spaceship that must avoid and shoot down falling meteors, and after a certain score, a large monster appears that functions as a boss. The more the player shoots at the monster, the more points they earn.
-        </div>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Spelkoncept och uttryck</h3>
-        <h3 class="english">Game Concept and Expression</h3>
-        <p class="swedish">Vi skapade ett spel som balanserar retroinspiration med moderna element. Med inspiration från klassiska 2D-spel kombinerade vi den nostalgiska känslan med dynamiska visuella effekter, ljud och rörelser för att skapa en engagerande upplevelse.</p>
-        <p class="english">We created a game that balances retro inspiration with modern elements. With inspiration from classic 2D games, we combined the nostalgic feeling with dynamic visual effects, sounds, and movements to create an engaging experience.</p>
-        
-        <p class="swedish">Det som gör vårt uttryck intressant är balansen mellan det retroinspirerade och det moderna. Vi har tagit inspiration från äldre 2D-spel men försökt skapa en mer dynamisk känsla. Begrepp som "reaktivitet", "spelmekanik" och "progression" beskriver väl vårt uttryck – varje del av spelet ska svara på spelarens handlingar och belöna skicklighet.</p>
-        <p class="english">What makes our expression interesting is the balance between retro-inspired and modern. We've taken inspiration from older 2D games but tried to create a more dynamic feel. Concepts like "reactivity", "game mechanics", and "progression" well describe our expression – every part of the game should respond to the player's actions and reward skill.</p>
-        
-        <p class="swedish"><strong>Kärnelement i spelet:</strong></p>
-        <p class="english"><strong>Core elements of the game:</strong></p>
-        
-        <ul class="swedish">
-            <li>Spelstyrning med tangentbord eller mus</li>
-            <li>Progresiv svårighetsgrad med ökande meteorhastighet</li>
-            <li>Boss fight-system som aktiveras vid poänggräns</li>
-            <li>Omfattande poängsystem med kombos och multiplikatorer</li>
-        </ul>
-        <ul class="english">
-            <li>Game control with keyboard or mouse</li>
-            <li>Progressive difficulty with increasing meteor speed</li>
-            <li>Boss fight system activated at score threshold</li>
-            <li>Comprehensive scoring system with combos and multipliers</li>
-        </ul>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Teknisk implementering</h3>
-        <h3 class="english">Technical Implementation</h3>
-        <p class="swedish">Projektet implementerades med objektorienterad programmering i JavaScript med hjälp av p5.play-biblioteket. Arbetet involverade skapandet av flera komplexa klasser och hantering av realtidsinteraktioner.</p>
-        <p class="english">The project was implemented with object-oriented programming in JavaScript using the p5.play library. The work involved creating several complex classes and handling real-time interactions.</p>
-        
-        <p class="swedish"><strong>Tekniska utmaningar och lösningar:</strong></p>
-        <p class="english"><strong>Technical challenges and solutions:</strong></p>
-        
-        <ul class="swedish">
-            <li><strong>Objektorienterad struktur:</strong> Vi började med att skapa de grundläggande klasserna för spelaren, projektiler, meteorer och bossen. Att arbeta objektorienterat hjälpte oss att hålla koden organiserad, men det tog tid att förstå hur instanser och metoder fungerade tillsammans i p5.play.</li>
-            <li><strong>Kollisionsdetektering:</strong> En av de största utmaningarna var att få kollisioner och rörelser att fungera smidigt mellan objekten. Vi implementerade ett effektivt kollisionssystem som kontrollerar när projektiler träffar meteorer eller bossen.</li>
-            <li><strong>Statemanagement:</strong> Implementering av olika spelstatusar (start, spel, paus, game over, boss fight) krävde noggrant tillståndshanteringssystem.</li>
-        </ul>
-        <ul class="english">
-            <li><strong>Object-oriented structure:</strong> We started by creating the basic classes for player, projectiles, meteors, and the boss. Working object-oriented helped us keep the code organized, but it took time to understand how instances and methods worked together in p5.play.</li>
-            <li><strong>Collision detection:</strong> One of the biggest challenges was getting collisions and movements to work smoothly between objects. We implemented an efficient collision system that checks when projectiles hit meteors or the boss.</li>
-            <li><strong>State management:</strong> Implementing different game states (start, play, pause, game over, boss fight) required a careful state management system.</li>
-        </ul>
-        
-        <p class="swedish"><strong>Spelmekanik justeringar:</strong></p>
-        <p class="english"><strong>Game mechanics adjustments:</strong></p>
-        
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-value">15+</div>
-                <div class="stat-label swedish">Iterationer</div>
-                <div class="stat-label english">Iterations</div>
-                <p class="swedish" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Justeringar av hastighet och svårighet</p>
-                <p class="english" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Speed and difficulty adjustments</p>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">7</div>
-                <div class="stat-label swedish">Klasser</div>
-                <div class="stat-label english">Classes</div>
-                <p class="swedish" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Objektorienterade komponenter</p>
-                <p class="english" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Object-oriented components</p>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">1000</div>
-                <div class="stat-label swedish">Poänggräns</div>
-                <div class="stat-label english">Score Threshold</div>
-                <p class="swedish" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">För boss fight aktivering</p>
-                <p class="english" style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">For boss fight activation</p>
-            </div>
-        </div>
-        
-        <p class="swedish">För att komma vidare använde vi främst exempel från p5.play:s dokumentation, YouTube-tutorials samt ChatGPT för felsökning och förbättring av kod. Mycket tid gick åt till att testa olika varianter av spelmekanik – till exempel att justera hastigheter, lägga till poängräkning, och finjustera bossens rörelser.</p>
-        <p class="english">To move forward, we mainly used examples from p5.play's documentation, YouTube tutorials, and ChatGPT for debugging and code improvement. A lot of time was spent testing different variants of game mechanics – for example, adjusting speeds, adding scorekeeping, and fine-tuning the boss's movements.</p>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Designkritik och förbättringar</h3>
-        <h3 class="english">Design Critique and Improvements</h3>
-        <p class="swedish">Under designkritiken fick vi värdefull feedback som hjälpte oss att identifiera områden för förbättring och framtida utveckling.</p>
-        <p class="english">During design critique, we received valuable feedback that helped us identify areas for improvement and future development.</p>
-        
-        <p class="swedish"><strong>Mottagen feedback:</strong></p>
-        <p class="english"><strong>Received feedback:</strong></p>
-        
-        <ul class="swedish">
-            <li><strong>Tydlig idé och fungerande mekanik:</strong> Spelet hade en tydlig vision och välfungerande grundläggande spelmekanik som uppskattades av testare.</li>
-            <li><strong>Visuell förbättringspotential:</strong> Feedback pekade på att spelet kunde bli ännu mer visuellt levande med fler effekter och animationer.</li>
-            <li><strong>Ljuddesign:</strong> Förslag på förbättrad ljuddesign för att förstärka spelupplevelsen.</li>
-        </ul>
-        <ul class="english">
-            <li><strong>Clear idea and working mechanics:</strong> The game had a clear vision and well-functioning basic game mechanics that were appreciated by testers.</li>
-            <li><strong>Visual improvement potential:</strong> Feedback pointed out that the game could become even more visually alive with more effects and animations.</li>
-            <li><strong>Sound design:</strong> Suggestions for improved sound design to enhance the gaming experience.</li>
-        </ul>
-        
-        <p class="swedish"><strong>Implementerade och planerade förbättringar:</strong></p>
-        <p class="english"><strong>Implemented and planned improvements:</strong></p>
-        
-        <ul class="swedish">
-            <li><strong>Explosionseffekter:</strong> Ett förslag var att lägga till fler visuella effekter, exempelvis explosioner när meteorer träffas eller när bossen tar skada. Vi hann inte implementera allt detta, men planerar att lägga till det i framtida versioner.</li>
-            <li><strong>Partikeleffekter:</strong> Ytterligare förslag inkluderade partikeleffekter för projektiler och träffmarkeringar.</li>
-            <li><strong>UI-förbättringar:</strong> Förbättringar av användargränssnittet för bättre spelarinformation och navigering.</li>
-        </ul>
-        <ul class="english">
-            <li><strong>Explosion effects:</strong> One suggestion was to add more visual effects, such as explosions when meteors are hit or when the boss takes damage. We didn't have time to implement all of this, but plan to add it in future versions.</li>
-            <li><strong>Particle effects:</strong> Additional suggestions included particle effects for projectiles and hit markers.</li>
-            <li><strong>UI improvements:</strong> Improvements to the user interface for better player information and navigation.</li>
-        </ul>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Resultat och lärdomar</h3>
-        <h3 class="english">Results and Learnings</h3>
-        <div class="role-highlight">
-            <p class="swedish"><strong>Slutresultat:</strong> Vi utvecklade ett fullt fungerande interaktivt rymdspel med avancerade spelmekaniker inklusive boss fights, progressiv svårighetsgrad och omfattande poängsystem. Spelet demonstrerar effektiv användning av objektorienterad programmering och externa bibliotek.</p>
-            
-            <p class="swedish"><strong>Tekniska lärdomar:</strong> Projektet har gett oss en bättre förståelse för objektorienterad programmering och hur man bygger upp ett spel från grunden. Vi har lärt oss:</p>
-            <ul class="swedish">
-                <li>Hur man strukturerar komplexa applikationer med klasser och objekt</li>
-                <li>Användning av externa bibliotek (p5.play) för spelutveckling</li>
-                <li>Implementering av realtids kollisionsdetektering</li>
-                <li>Statemanagement i spelapplikationer</li>
-                <li>Optimerings tekniker för prestanda i spel</li>
-            </ul>
-            
-            <p class="swedish"><strong>Design- och processlärdomar:</strong></p>
-            <ul class="swedish">
-                <li>Vikten av iterativ design och kontinuerlig testning av spelmekanik</li>
-                <li>Hur ljud, grafik och spelmekanik tillsammans skapar en helhetsupplevelse</li>
-                <li>Balansering av svårighetsgrad för att hålla spelare engagerade</li>
-                <li>Värde av användarfeedback i spelutvecklingsprocessen</li>
-            </ul>
-            
-            <p class="swedish"><strong>Framtida möjligheter:</strong> Projektet har lagt en solid grund för fortsatt spelutveckling. Potentiella nästa steg inkluderar:</p>
-            <ul class="swedish">
-                <li>Utöka spelet med fler banor och bossar</li>
-                <li>Implementera power-ups och specialförmågor</li>
-                <li>Skapa en online highscore-tabell</li>
-                <li>Porta spelet till mobilplattformar</li>
-                <li>Utveckla multiplayer-funktionalitet</li>
-            </ul>
-            
-            <p class="english"><strong>Final result:</strong> We developed a fully functional interactive space game with advanced game mechanics including boss fights, progressive difficulty, and comprehensive scoring systems. The game demonstrates effective use of object-oriented programming and external libraries.</p>
-            
-            <p class="english"><strong>Technical learnings:</strong> The project has given us a better understanding of object-oriented programming and how to build a game from scratch. We have learned:</p>
-            <ul class="english">
-                <li>How to structure complex applications with classes and objects</li>
-                <li>Use of external libraries (p5.play) for game development</li>
-                <li>Implementation of real-time collision detection</li>
-                <li>State management in game applications</li>
-                <li>Optimization techniques for game performance</li>
-            </ul>
-            
-            <p class="english"><strong>Design and process learnings:</strong></p>
-            <ul class="english">
-                <li>The importance of iterative design and continuous testing of game mechanics</li>
-                <li>How sound, graphics, and game mechanics together create a holistic experience</li>
-                <li>Balancing difficulty to keep players engaged</li>
-                <li>Value of user feedback in the game development process</li>
-            </ul>
-            
-            <p class="english"><strong>Future opportunities:</strong> The project has laid a solid foundation for continued game development. Potential next steps include:</p>
-            <ul class="english">
-                <li>Expanding the game with more levels and bosses</li>
-                <li>Implementing power-ups and special abilities</li>
-                <li>Creating an online highscore table</li>
-                <li>Porting the game to mobile platforms</li>
-                <li>Developing multiplayer functionality</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- Don't Do Drugs Detail Page -->
-<div id="project-dont-do-drugs" class="project-detail">
-    
-    <div class="detail-header">
-        <h1 class="detail-title">(Don't) Do Drugs!</h1>
-        
-            <div class="project-hero-image">
-                <img src="drugs.png" alt="drugs" style="width: 100%; height: 100%;">
-            </div>
-        <p class="image-caption swedish">Interaktiv konstinstallation om drogers effekter</p>
-        <p class="image-caption english">Interactive art installation about drug effects</p>
-        
-        <div class="detail-overview swedish">
-            I uppgiften The Art of Repetition utforskade vi hur upprepning, rytm och mönster kan användas som konstnärliga byggstenar i ett digitalt verk. Vi fascinerades av att kod i sig redan är upprepning – genom loopar, funktioner och variabler – och ville använda den strukturen för att skapa något som både kändes organiskt och provocerande.
-            <br><br>
-            Vårt verk, "(Don't) Do Drugs!", är en interaktiv visuell upplevelse som undersöker gränserna mellan digital konst, social kommentar och sensorisk upplevelse.
-        </div>
-        <div class="detail-overview english">
-            In the assignment The Art of Repetition, we explored how repetition, rhythm, and patterns can be used as artistic building blocks in a digital work. We were fascinated by the fact that code itself is already repetition – through loops, functions, and variables – and wanted to use that structure to create something that felt both organic and provocative.
-            <br><br>
-            Our work, "(Don't) Do Drugs!", is an interactive visual experience that explores the boundaries between digital art, social commentary, and sensory experience.
-        </div>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Koncept och konstnärligt uttryck</h3>
-        <h3 class="english">Concept and Artistic Expression</h3>
-        <p class="swedish">Verket är en interaktiv visuell upplevelse inspirerad av ravekulturens intensiva färger, ljus och rörelse. Skärmen fylls av snabbt skiftande färger och blinkande figurer, vilket skapar en nästan överväldigande sensorisk upplevelse som reflekterar kaoset och överstimuleringen som kan följa med droganvändning.</p>
-        <p class="english">The work is an interactive visual experience inspired by the intense colors, lights, and movement of rave culture. The screen fills with rapidly changing colors and flashing figures, creating an almost overwhelming sensory experience that reflects the chaos and overstimulation that can accompany drug use.</p>
-        
-        <p class="swedish"><strong>Nyckelkoncept i verket:</strong></p>
-        <p class="english"><strong>Key concepts in the work:</strong></p>
-        
-        <ul class="swedish">
-            <li><strong>Upprepning och rytm:</strong> Kod som konstnärligt medium genom loopar och iterationer</li>
-            <li><strong>Sensorisk överstimulering:</strong> Skapa en upplevelse som reflekterar drogers effekter</li>
-            <li><strong>Interaktiv kontroll:</strong> Användaren har möjlighet att stoppa kaoset</li>
-            <li><strong>Social kommentar:</strong> Ett verk som både varnar och fascinerar</li>
-        </ul>
-        <ul class="english">
-            <li><strong>Repetition and rhythm:</strong> Code as artistic medium through loops and iterations</li>
-            <li><strong>Sensory overstimulation:</strong> Creating an experience that reflects drug effects</li>
-            <li><strong>Interactive control:</strong> The user has the ability to stop the chaos</li>
-            <li><strong>Social commentary:</strong> A work that both warns and fascinates</li>
-        </ul>
-        
-        <p class="swedish">Budskapet "Klicka för att stoppa epilepsishowen" fungerar både som varning och som en interaktiv kontroll – ett sätt för användaren att ta tillbaka kontrollen över den överstimulerade rytmen. Dessutom påverkar musrörelser både färg, rotation och storlek på figurerna, vilket gör varje upplevelse unik och dynamisk.</p>
-            <p class="english">The message "Click to stop the epilepsy show" functions both as a warning and as an interactive control – a way for the user to regain control over the overstimulated rhythm. Additionally, mouse movements affect color, rotation, and size of the figures, making each experience unique and dynamic.</p>
-    </div>
-    
-<div class="detail-section">
-    <h3 class="swedish">Teknisk implementering och process</h3>
-    <h3 class="english">Technical Implementation and Process</h3>
-    <p class="swedish">Under arbetet använde vi JavaScript och p5.js för att bygga upp verket med loopar och repetition. Vi experimenterade med rytm i bildflödet genom att variera färgintervall, rotationer och geometriska figurers placering.</p>
-    <p class="english">During the work, we used JavaScript and p5.js to build the work with loops and repetition. We experimented with rhythm in the image flow by varying color intervals, rotations, and placement of geometric figures.</p>
-    
-    <p class="swedish"><strong>Tekniska komponenter:</strong></p>
-    <p class="english"><strong>Technical components:</strong></p>
-    
-    <ul class="swedish">
-        <li><strong>p5.js-biblioteket:</strong> Användes för grafisk rendering och animation</li>
-        <li><strong>Nästlade loopar:</strong> För att skapa komplexa mönster och rytmer</li>
-        <li><strong>Realtidsinteraktion:</strong> Musposition påverkar visuella parametrar direkt</li>
-        <li><strong>Slumpmässiga algoritmer:</strong> För att skapa organisk variation inom strukturerade mönster</li>
-    </ul>
-    <ul class="english">
-        <li><strong>p5.js library:</strong> Used for graphic rendering and animation</li>
-        <li><strong>Nested loops:</strong> To create complex patterns and rhythms</li>
-        <li><strong>Real-time interaction:</strong> Mouse position directly affects visual parameters</li>
-        <li><strong>Random algorithms:</strong> To create organic variation within structured patterns</li>
-    </ul>
-    
-    <p class="swedish"><strong>Utmaningar och lösningar:</strong></p>
-    <p class="english"><strong>Challenges and solutions:</strong></p>
-    
-    <div class="stats-grid">
-        <div class="stat-box">
-            <div class="stat-value">Balans</div>
-            <div class="stat-label swedish">Kaos ↔ Kontroll</div>
-            <div class="stat-label english">Chaos ↔ Control</div>
-            <div class="stat-description swedish">Hitta rätt balans mellan överstimulering och konst</div>
-            <div class="stat-description english">Finding the right balance between overstimulation and art</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-value">Interaktion</div>
-            <div class="stat-label swedish">Användarkontroll</div>
-            <div class="stat-label english">User Control</div>
-            <div class="stat-description swedish">Implementering av stoppfunktion och musinteraktion</div>
-            <div class="stat-description english">Implementation of stop function and mouse interaction</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-value">Visual</div>
-            <div class="stat-label swedish">Rytm och mönster</div>
-            <div class="stat-label english">Rhythm & Patterns</div>
-            <div class="stat-description swedish">Skapa hypnotiska mönster utan monotoni</div>
-            <div class="stat-description english">Creating hypnotic patterns without monotony</div>
-        </div>
-    </div>
-    
-    <p class="swedish">En av de största utmaningarna var att hitta balansen mellan kaos och kontroll. För mycket upprepning gjorde verket monotont, medan för mycket variation bröt rytmen. Slumpmässiga värden i looparna gav små variationer som gjorde helheten mer levande utan att förlora det hypnotiska intrycket.</p>
-    <p class="english">One of the biggest challenges was finding the balance between chaos and control. Too much repetition made the work monotonous, while too much variation broke the rhythm. Random values in the loops provided small variations that made the whole more alive without losing the hypnotic impression.</p>
-    
-    <p class="swedish">Vi hade även planer på att lägga till musik, men stötte på tekniska problem och fokuserade istället på att förstärka det visuella uttrycket och interaktiviteten. Kattbilderna som följer musen och animationens stopp-funktion blev viktiga element för att skapa både teknisk och konceptuell tyngd.</p>
-    <p class="english">We also had plans to add music, but encountered technical problems and instead focused on strengthening the visual expression and interactivity. The cat images that follow the mouse and the animation's stop function became important elements for creating both technical and conceptual weight.</p>
-</div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Interaktiva element och användarupplevelse</h3>
-        <h3 class="english">Interactive Elements and User Experience</h3>
-        <p class="swedish">Verket är designat för att engagera användaren på flera nivåer – från passiv observation till aktiv interaktion och reflektion.</p>
-        <p class="english">The work is designed to engage the user on multiple levels – from passive observation to active interaction and reflection.</p>
-        
-        <p class="swedish"><strong>Interaktionsmekanismer:</strong></p>
-        <p class="english"><strong>Interaction mechanisms:</strong></p>
-        
-        <ul class="swedish">
-            <li><strong>Musföljande kattbilder:</strong> Kattbilder följer musen och byter utseende beroende på animationens status, vilket förstärker interaktiviteten och det lekfulla uttrycket.</li>
-            <li><strong>Klick-stopp-funktion:</strong> Användaren kan när som helst klicka för att stoppa den överväldigande animationen och återfå kontroll.</li>
-            <li><strong>Realtidspåverkan:</strong> Musposition påverkar direkt färgskalor, rotationshastighet och figurstorlekar.</li>
-            <li><strong>Progressiv intensitet:</strong> Animationen blir gradvis mer intensiv om den inte stoppas.</li>
-        </ul>
-        <ul class="english">
-            <li><strong>Mouse-following cat images:</strong> Cat images follow the mouse and change appearance depending on the animation's status, which enhances interactivity and the playful expression.</li>
-            <li><strong>Click-stop function:</strong> The user can click at any time to stop the overwhelming animation and regain control.</li>
-            <li><strong>Real-time influence:</strong> Mouse position directly affects color scales, rotation speed, and figure sizes.</li>
-            <li><strong>Progressive intensity:</strong> The animation gradually becomes more intense if not stopped.</li>
-        </ul>
-        
-        <p class="swedish"><strong>Användarresonans och reflektion:</strong></p>
-        <p class="english"><strong>User resonance and reflection:</strong></p>
-        
-        <div class="role-highlight" style="margin-top: 30px;">
-            <p class="swedish">"Verket skapar en medveten dissonans mellan det estetiskt tilltalande och det sensoriskt överväldigande. Användaren lockas in av de vackra färgerna och mönstren, men konfronteras samtidigt med en känsla av kontrollförlust som reflekterar drogers effekter. Möjligheten att stoppa upplevelsen ger en kathartisk känsla av makt och reflektion."</p>
-            <p class="english">"The work creates a conscious dissonance between the aesthetically appealing and the sensorially overwhelming. The user is drawn in by the beautiful colors and patterns, but simultaneously confronted with a feeling of loss of control that reflects the effects of drugs. The ability to stop the experience provides a cathartic feeling of power and reflection."</p>
-        </div>
-    </div>
-    
-    <div class="detail-section">
-        <h3 class="swedish">Konstnärligt sammanhang och reflektion</h3>
-        <h3 class="english">Artistic Context and Reflection</h3>
-        <div class="role-highlight">
-            <p class="swedish"><strong>Konstnärlig positionering:</strong> "(Don't) Do Drugs!" placerar sig i skärningspunkten mellan digital konst, interaktiv design och social kommentar. Verket refererar till traditioner av optisk konst och kinetisk konst, men översätter dessa till ett digitalt, interaktivt medium.</p>
-            
-            <p class="swedish"><strong>Tematiska lager:</strong></p>
-            <ul class="swedish">
-                <li><strong>Upprepning som konst:</strong> Utforskar hur kod och loopar kan skapa konstnärliga uttryck</li>
-                <li><strong>Sensorisk erfarenhet:</strong> Simulerar och kommenterar överstimulerande upplevelser</li>
-                <li><strong>Kontroll och makt:</strong> Undersöker dynamiken mellan användaren och teknologin</li>
-                <li><strong>Social medvetenhet:</strong> Funktionerar som ett konstnärligt verktyg för drogprevention</li>
-            </ul>
-            
-            <p class="swedish"><strong>Tekniska och konstnärliga lärdomar:</strong> Projektet gav oss möjlighet att utforska hur kod och konst kan mötas genom rytm, upprepning och interaktivitet. Genom loopar, färgförändringar och musstyrda animationer skapade vi en upplevelse som väcker både nyfikenhet och obehag – en medveten kontrast mellan det lekfulla och det överstimulerade.</p>
-            
-            <p class="swedish"><strong>Reflektion över medium och budskap:</strong> "(Don't) Do Drugs!" fungerar som både kommentar och hyllning: en kommentar om hur lätt vi fastnar i digitalt tempo och visuell överbelastning, och en hyllning till programmeringens estetiska kraft. Arbetet utvecklade vår förståelse för hur tekniska verktyg kan användas för att skapa känslomässiga uttryck, och hur repetition i både konst och kod kan skapa rytm, komplexitet och mening.</p>
-            
-            <p class="swedish"><strong>Framtida utveckling:</strong></p>
-            <ul class="swedish">
-                <li>Utöka med ljuddesign för att skapa en mer immersiv sensorisk upplevelse</li>
-                <li>Utveckla en serie liknande verk som utforskar andra sociala teman</li>
-                <li>Skapa en fysisk installation-version med interaktiva projektioner</li>
-                <li>Integrera verkets principer i pedagogiska verktyg för drogprevention</li>
-            </ul>
-            
-            <p class="english"><strong>Artistic positioning:</strong> "(Don't) Do Drugs!" positions itself at the intersection of digital art, interactive design, and social commentary. The work references traditions of optical art and kinetic art, but translates these into a digital, interactive medium.</p>
-            
-            <p class="english"><strong>Thematic layers:</strong></p>
-            <ul class="english">
-                <li><strong>Repetition as art:</strong> Explores how code and loops can create artistic expressions</li>
-                <li><strong>Sensory experience:</strong> Simulates and comments on overstimulating experiences</li>
-                <li><strong>Control and power:</strong> Examines the dynamics between user and technology</li>
-                <li><strong>Social awareness:</strong> Functions as an artistic tool for drug prevention</li>
-            </ul>
-            
-            <p class="english"><strong>Technical and artistic learnings:</strong> The project gave us the opportunity to explore how code and art can meet through rhythm, repetition, and interactivity. Through loops, color changes, and mouse-controlled animations, we created an experience that evokes both curiosity and discomfort – a conscious contrast between the playful and the overstimulated.</p>
-            
-            <p class="english"><strong>Reflection on medium and message:</strong> "(Don't) Do Drugs!" functions as both commentary and tribute: a commentary on how easily we get caught up in digital tempo and visual overload, and a tribute to the aesthetic power of programming. The work developed our understanding of how technical tools can be used to create emotional expressions, and how repetition in both art and code can create rhythm, complexity, and meaning.</p>
-            
-            <p class="english"><strong>Future development:</strong></p>
-            <ul class="english">
-                <li>Expand with sound design to create a more immersive sensory experience</li>
-                <li>Develop a series of similar works exploring other social themes</li>
-                <li>Create a physical installation version with interactive projections</li>
-                <li>Integrate the work's principles into educational tools for drug prevention</li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    <!-- Other project detail pages would follow similar structure -->
-    
-    <!-- Template for other project details (simplified) -->
-    <div id="project-template" class="project-detail">
-        
-        <div class="detail-header">
-            <h1 class="detail-title">Projekt</h1>
-            <div class="project-hero-image">
-                <i class="fas fa-image"></i>
-            </div>
-            <p class="image-caption swedish">Projektbild kommer här</p>
-            <p class="image-caption english">Project image will be here</p>
-            <div class="detail-overview swedish">Detaljerad information om detta projekt kommer snart.</div>
-            <div class="detail-overview english">Detailed information about this project coming soon.</div>
-        </div>
-    </div>
+    <!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
 
 <script>
-    // Language toggle functionality
-    const langToggle = document.getElementById('langToggle');
-    const body = document.body;
+// ===== language.js kod =====
+console.log('=== LANGUAGE SCRIPT (inline) ===');
+
+const langToggle = document.getElementById('langToggle');
+const body = document.body;
+
+if (langToggle) {
+    console.log('✅ Button found!');
+    
+    const savedLang = localStorage.getItem('portfolioLanguage');
+    if (savedLang === 'english') {
+        body.classList.remove('swedish');
+        body.classList.add('english');
+        langToggle.textContent = 'Svenska';
+        console.log('Set to English');
+    } else {
+        body.classList.remove('english');
+        body.classList.add('swedish');
+        langToggle.textContent = 'English';
+        console.log('Set to Swedish');
+    }
     
     langToggle.addEventListener('click', () => {
+        console.log('Button clicked!');
         if (body.classList.contains('swedish')) {
             body.classList.remove('swedish');
             body.classList.add('english');
             langToggle.textContent = 'Svenska';
+            localStorage.setItem('portfolioLanguage', 'english');
+            console.log('Changed to English');
         } else {
             body.classList.remove('english');
             body.classList.add('swedish');
             langToggle.textContent = 'English';
+            localStorage.setItem('portfolioLanguage', 'swedish');
+            console.log('Changed to Swedish');
         }
     });
-    
-    // Project detail navigation
-    const viewDetailButtons = document.querySelectorAll('.view-detail');
-    const portfolioMain = document.getElementById('portfolioMain');
-    const backButtons = document.querySelectorAll('.back-btn');
-    
-    viewDetailButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const projectId = button.getAttribute('data-project');
-            
-            // Hide main portfolio page
-            portfolioMain.style.display = 'none';
-            
-            // Hide all project detail pages and about page
-            document.querySelectorAll('.project-detail').forEach(page => {
-                page.style.display = 'none';
-            });
-            document.getElementById('aboutPage').style.display = 'none';
-            
-            // Show the selected project detail page
-            const detailPage = document.getElementById(`project-${projectId}`);
-            if (detailPage) {
-                detailPage.style.display = 'block';
-            } else {
-                // If no specific page exists, show template
-                document.getElementById('project-template').style.display = 'block';
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        });
+} else {
+    console.error('Button not found!');
+}
+
+// ===== BACK TO TOP FUNCTIONALITY =====
+const backToTopBtn = document.getElementById('backToTop');
+
+// Visa/dölj knapp baserat på scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+// Smidig scroll till toppen när knappen klickas
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
-    
-    // Back button functionality (for project detail pages)
-    backButtons.forEach(button => {
-        if (button.id !== 'backToPortfolio') {
-            button.addEventListener('click', () => {
-                // Hide all project detail pages
-                document.querySelectorAll('.project-detail').forEach(page => {
-                    page.style.display = 'none';
-                });
-                
-                // Show main portfolio page
-                portfolioMain.style.display = 'block';
-                
-                // Scroll to top
-                window.scrollTo(0, 0);
-            });
-        }
-    });
-    
-    // Menylänkar funktionalitet
-    const portfolioLink = document.getElementById('portfolioLink');
-    const aboutLink = document.getElementById('aboutLink');
-    const aboutPage = document.getElementById('aboutPage');
-    const backToPortfolio = document.getElementById('backToPortfolio');
-    
-    portfolioLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Göm alla projekt-detaljsidor och om mig-sidan
-        document.querySelectorAll('.project-detail').forEach(page => {
-            page.style.display = 'none';
-        });
-        aboutPage.style.display = 'none';
-        
-        // Visa huvudportfolion
-        portfolioMain.style.display = 'block';
-        
-        // Scrolla till toppen
-        window.scrollTo(0, 0);
-    });
-    
-    aboutLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Göm alla sidor
-        portfolioMain.style.display = 'none';
-        document.querySelectorAll('.project-detail').forEach(page => {
-            page.style.display = 'none';
-        });
-        
-        // Visa "Om mig"-sidan
-        aboutPage.style.display = 'block';
-        
-        // Scrolla till toppen
-        window.scrollTo(0, 0);
-    });
-    
-    // Tillbaka-knapp för "Om mig"-sidan
-    backToPortfolio.addEventListener('click', () => {
-        aboutPage.style.display = 'none';
-        portfolioMain.style.display = 'block';
-        window.scrollTo(0, 0);
-    });
-    
-    // Initialize portfolio as visible
-    portfolioMain.style.display = 'block';
+});
 </script>
 </body>
 </html>
-
